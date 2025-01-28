@@ -90,12 +90,13 @@ public class TestNGTodo2 {
         System.out.println("Checking Another Box");
         driver.findElement(By.name("li9")).click();
 
-        // Let's also assert that the todo we added is present in the list.
+        //Let's also assert that the todo we added is present in the list.
 
-        //spanText = driver.findElement(By.xpath("/html/body/div/div/div/ul/li[9]/span").getText();
-        //Assert.assertEquals("Get Taste of Lambda and Stick to It", spanText);
-        //Status = "passed";
-        Thread.sleep(150);
+        String spanText = driver.findElement(By.xpath("//span[contains(text(),'Get Taste of Lambda and Stick to It')]")).getText();
+        Assert.assertEquals("Get Taste of Lambda and Stick to It", spanText);
+        String Status = "passed";
+        System.out.println(Status);
+        Thread.sleep(3000);
 
         System.out.println("TestFinished");
 
@@ -103,7 +104,7 @@ public class TestNGTodo2 {
 
     @AfterMethod
     public void tearDown() {
-        driver.quit();
+       // driver.quit();
     }
 
 }

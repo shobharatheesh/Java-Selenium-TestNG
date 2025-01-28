@@ -24,14 +24,6 @@ import org.openqa.selenium.WebDriver;
 
 public class TestNGTodo2 {
 
-   // WebDriver driver;
-    //private String Status = "failed";
-
-    //@BeforeMethod
-    //public void setup(Method m, ITestContext ctx) throws MalformedURLException {
-        //System.setProperty("webdriver.chrome.driver", "C:/Users/admin/Downloads/chromedriver_win32(1)");
-        //WebDriver driver = new ChromeDriver();
-
     private WebDriver driver;
 
     @BeforeMethod
@@ -40,11 +32,10 @@ public class TestNGTodo2 {
         driver = new ChromeDriver();
     }
 
-    //}
 
     @Test
     public void basicTest() throws InterruptedException {
-       // String spanText;
+
         System.out.println("Loading Url");
 
         driver.get("https://lambdatest.github.io/sample-todo-app/");

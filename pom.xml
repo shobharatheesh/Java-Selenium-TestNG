@@ -6,7 +6,6 @@
 	<artifactId>Java-TestNG-Selenium</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<build>
-		<sourceDirectory>Java-TestNG-Selenium/src</sourceDirectory>
 		<resources>
 			<resource>
 				<directory>Java-TestNG-Selenium/src</directory>
@@ -56,6 +55,14 @@
 			<artifactId>testng</artifactId>
 			<version>6.14.3</version>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+		<dependency>
+			<groupId>io.github.bonigarcia</groupId>
+			<artifactId>webdrivermanager</artifactId>
+			<version>5.9.2</version>
+		</dependency>
+
 
 	</dependencies>
 

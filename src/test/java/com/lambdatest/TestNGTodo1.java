@@ -4,7 +4,9 @@ import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -16,19 +18,17 @@ import org.testng.annotations.Test;
 
 public class TestNGTodo1 {
 
-    private RemoteWebDriver driver;
-    private String Status = "failed";
+    private WebDriver driver;
 
     @BeforeMethod
     public void setup(Method m, ITestContext ctx) throws MalformedURLException {
-        System.setProperty("webdriver.chrome.driver", "/Users/pramod/Documents/driver/chromedriver");
+        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-
     }
 
     @Test
     public void basicTest() throws InterruptedException {
-        String spanText;
+
         System.out.println("Loading Url");
 
         driver.get("https://lambdatest.github.io/sample-todo-app/");
@@ -40,7 +40,7 @@ public class TestNGTodo1 {
         driver.findElement(By.name("li2")).click();
 
         System.out.println("Checking Box");
-        driver.findElement(By.name("li9")).click();
+        driver.findElement(By.name("li3")).click();
 
         System.out.println("Checking Another Box");
         driver.findElement(By.name("li4")).click();
@@ -77,10 +77,11 @@ public class TestNGTodo1 {
 
         // Let's also assert that the todo we added is present in the list.
 
-        spanText = driver.findElementByXPath("/html/body/div/div/div/ul/li[9]/span").getText();
-        Assert.assertEquals("Get Taste of Lambda and Stick to It", spanText);
-        Status = "passed";
-        Thread.sleep(150);
+        String spanText1 = driver.findElement(By.xpath("//span[contains(text(),'Get Taste of Lambda and Stick to It')]")).getText();
+        Assert.assertEquals("Get Taste of Lambda and Stick to It", spanText1);
+        String Status = "passed";
+        System.out.println(Status);
+        Thread.sleep(3000);
 
         System.out.println("TestFinished");
 
